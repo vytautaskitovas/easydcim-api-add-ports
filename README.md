@@ -4,24 +4,17 @@ Simple bash script to create ports in EasyDCIM using their API
 
 # Create ports in EasyDCIM using their API
 
-This is a simple script to quickly assign IPv4 IP addresses ranges to specific interface on Ubuntu system. You can assign multiple ranges at once, even if it is /22 or bigger subnet. The scripts adds ranges to network interface and, also, commands to /etc/rc.local file so network interface would be updated after server restart.
+This is a simple script to quickly create port for server in EasyDCIM using their API:
+https://www.easydcim.com/api/#api-Port-Create
 
 ## How to Use
 
-You can run this script remotely on any Ubuntu based Linux machine using following command:
-
-```bash
-bash <(curl -s -L https://raw.githubusercontent.com/vytautaskitovas/data/master/ubuntuaddip.sh)
+Edit values per requirements. Add API key and run this script locally, use these commands:
+```
+wget https://raw.githubusercontent.com/vytautaskitovas/easydcim-api-add-ports/master/easydcimcreateports.sh && chmod +x easydcimcreateports.sh
+./easydcimcreateports.sh
 ```
 
-If you want to run this script locally, use these commands:
-```
-wget https://raw.githubusercontent.com/vytautaskitovas/data/master/ubuntuaddip.sh && chmod +x ubuntuaddip.sh
-./ubuntuaddip.sh
-```
-
-**Please follow these rules when you want to add IPs:**
-- At first scripts shows you current network interface;
-- Write or paste all new ranges in a list format(e.g. 191.101.0.0/25) and press ctrl+d;
-- The script will ask to enter network interface;
-- IP addresses will be added to network interface and to /etc/rc.local file.
+**Please follow these rules when you want to add ports:**
+- Write or paste all new ranges in a list format(e.g. 333) and press ctrl+d;
+- The script will execute and return status for each port;
